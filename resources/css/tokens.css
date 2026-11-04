@@ -1,0 +1,143 @@
+/*
+ * Дизайн токенууд: бүх өнгө, зай, сүүдэр энд тодорхойлогдоно.
+ *
+ * Жагсаасан брэнд өнгөнүүдийн зарим нь цагаан дэвсгэр дээрх текстэд
+ * 4.5:1-д хүрдэггүй (#16A34A = 3.3:1, #D97706 = 3.2:1). Иймд тэдгээрийг
+ * зөвхөн icon, хүрээнд ашиглаж, текстэд --*-text бараан хувилбарыг хэрэглэнэ.
+ * Мөн #E2E8F0 нь чимэглэлийн хүрээ бөгөөд input-ийн хүрээнд 3:1 шаардлагатай
+ * тул --border-strong хэрэглэнэ.
+ */
+:root {
+    /* Брэнд */
+    --navy: #172554;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --on-primary: #ffffff;
+    --light-blue: #eff6ff;
+
+    /* Гадаргуу */
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --surface-tint: #eff6ff;
+
+    /* Текст */
+    --text: #0f172a;
+    --text-secondary: #64748b;
+    --text-soft: #475569;
+    --link: #1d4ed8;
+
+    /* Хүрээ */
+    --border: #e2e8f0;
+    --border-strong: #64748b;
+
+    /* Төлөв: icon/хүрээ */
+    --success: #16a34a;
+    --warning: #d97706;
+    --error: #dc2626;
+
+    /* Төлөв: текст, дэвсгэр */
+    --success-text: #15803d;
+    --success-bg: #f0fdf4;
+    --warning-text: #b45309;
+    --warning-bg: #fffbeb;
+    --error-text: #b91c1c;
+    --error-bg: #fef2f2;
+
+    /* Sidebar */
+    --sidebar-bg: #ffffff;
+    --sidebar-text: #334155;
+    --sidebar-active-bg: #eff6ff;
+    --sidebar-active-text: #172554;
+    --sidebar-border: #e2e8f0;
+    --sidebar-marker: #2563eb;
+
+    /* Focus: хоёр өнгөтэй тул аль ч дэвсгэр дээр харагдана */
+    --focus-inner: #0f172a;
+    --focus-outer: #fbbf24;
+
+    /* Хэмжээ */
+    --radius-sm: 0.5rem;
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --shadow-sm: 0 1px 2px rgb(15 23 42 / 6%);
+    --shadow: 0 4px 12px rgb(15 23 42 / 8%);
+    --control-height: 2.875rem;
+    /* Томруулахад агуулгын зайг шахахгүйн тулд дэлгэцийн хувиар хязгаарлана. */
+    --sidebar-width: min(17rem, 32vw);
+    --space-section: clamp(3rem, 6vw, 5.5rem);
+
+    /* Бичиг */
+    --font-sans: 'Inter Variable', 'Noto Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --fs-display: clamp(2.25rem, 1.6rem + 2.8vw, 3.5rem);
+    --fs-h1: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+    --fs-h2: 1.375rem;
+    --fs-h3: 1.125rem;
+    --fs-body: 1.0625rem;
+    --fs-small: 0.9375rem;
+
+    /* Bootstrap-ийг токентой холбоно */
+    --bs-font-sans-serif: var(--font-sans);
+    --bs-body-font-family: var(--font-sans);
+    --bs-body-font-size: var(--fs-body);
+    --bs-body-line-height: 1.65;
+    --bs-body-color: var(--text);
+    --bs-body-bg: var(--surface);
+    --bs-secondary-color: var(--text-soft);
+    --bs-border-color: var(--border);
+    --bs-link-color: var(--link);
+    --bs-link-color-rgb: 29, 78, 216;
+    --bs-link-hover-color: var(--navy);
+    --bs-link-hover-color-rgb: 23, 37, 84;
+    --bs-heading-color: var(--text);
+    --bs-border-radius: var(--radius-sm);
+}
+
+/* Өндөр контраст горим: хэрэглэгчийн тохиргооноос идэвхжинэ. */
+:root[data-contrast='high'] {
+    --navy: #000000;
+    --primary: #ffe600;
+    --primary-hover: #ffffff;
+    --on-primary: #000000;
+    --light-blue: #000000;
+
+    --bg: #000000;
+    --surface: #000000;
+    --surface-tint: #000000;
+
+    --text: #ffffff;
+    --text-secondary: #ffffff;
+    --text-soft: #ffffff;
+    --link: #ffe600;
+
+    --border: #ffffff;
+    --border-strong: #ffffff;
+
+    --success: #5cff8f;
+    --warning: #ffcc33;
+    --error: #ff8a8a;
+    --success-text: #5cff8f;
+    --success-bg: #000000;
+    --warning-text: #ffcc33;
+    --warning-bg: #000000;
+    --error-text: #ff8a8a;
+    --error-bg: #000000;
+
+    --sidebar-bg: #000000;
+    --sidebar-text: #ffffff;
+    --sidebar-active-bg: #ffe600;
+    --sidebar-active-text: #000000;
+    --sidebar-border: #ffffff;
+    --sidebar-marker: #000000;
+
+    --focus-inner: #000000;
+    --focus-outer: #00e5ff;
+
+    --shadow-sm: none;
+    --shadow: none;
+
+    --bs-link-color-rgb: 255, 230, 0;
+    --bs-link-hover-color: #ffffff;
+    --bs-link-hover-color-rgb: 255, 255, 255;
+
+    color-scheme: dark;
+}

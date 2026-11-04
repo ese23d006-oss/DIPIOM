@@ -1,0 +1,402 @@
+/* Нийтийн header. Томруулсан үед агуулгыг халхлахгүйн тулд sticky хийгээгүй. */
+.public-header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.public-header .navbar {
+    padding-block: 0.75rem;
+}
+
+.public-header .nav-link {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.public-header .nav-link:hover,
+.public-header .nav-link[aria-current='page'] {
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 0.4em;
+    text-decoration-thickness: 2px;
+}
+
+.public-header .navbar-toggler {
+    border-color: var(--border-strong);
+    color: var(--text);
+    min-height: var(--control-height);
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+}
+
+.brand:hover {
+    color: var(--text);
+}
+
+.brand-mark {
+    width: 2.25rem;
+    height: 2.25rem;
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: var(--primary);
+    color: var(--on-primary);
+    font-size: 1.125rem;
+}
+
+/* Нэвтэрсэн хэрэглэгчийн бүтэц: sidebar + агуулга */
+.app-shell {
+    flex: 1 0 auto;
+    display: flex;
+    min-width: 0;
+}
+
+.app-main {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-content {
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding: 2rem clamp(1rem, 3vw, 2.5rem) 3rem;
+}
+
+/* Sidebar */
+.sidebar {
+    --bs-offcanvas-width: min(20rem, 90vw);
+    --bs-offcanvas-bg: var(--sidebar-bg);
+    --bs-offcanvas-color: var(--sidebar-text);
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+}
+
+.sidebar--admin {
+    --sidebar-bg: #172554;
+    --sidebar-text: #e2e8f0;
+    --sidebar-active-bg: #ffffff;
+    --sidebar-active-text: #172554;
+    --sidebar-border: #33427a;
+    --sidebar-marker: #2563eb;
+}
+
+:root[data-contrast='high'] .sidebar--admin {
+    --sidebar-bg: #000000;
+    --sidebar-text: #ffffff;
+    --sidebar-active-bg: #ffe600;
+    --sidebar-active-text: #000000;
+    --sidebar-border: #ffffff;
+    --sidebar-marker: #000000;
+}
+
+.sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    padding: 1.25rem 1rem;
+    overflow-y: auto;
+}
+
+.sidebar .brand,
+.sidebar .brand:hover {
+    color: var(--sidebar-text);
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.sidebar--admin .brand,
+.sidebar--admin .brand:hover {
+    color: #ffffff;
+}
+
+.sidebar-eyebrow {
+    margin: 0 0 0.5rem 0.75rem;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--sidebar-text);
+}
+
+.sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sidebar-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: var(--control-height);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sm);
+    color: var(--sidebar-text);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sidebar-link .bi {
+    font-size: 1.125rem;
+}
+
+/* Томруулсан үед нарийн багананд урт үг хүрээнээс гарахгүй. */
+.sidebar-link span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.sidebar-link:hover {
+    color: var(--sidebar-text);
+    text-decoration: underline;
+}
+
+/* Идэвхтэй холбоос: өнгө, тод бичиг, зураас гурвуулаа ялгаж харуулна. */
+.sidebar-link[aria-current='page'] {
+    background: var(--sidebar-active-bg);
+    color: var(--sidebar-active-text);
+    font-weight: 700;
+}
+
+.sidebar-link[aria-current='page']::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 0.25rem;
+    border-radius: 0.25rem;
+    background: var(--sidebar-marker);
+}
+
+.sidebar-close {
+    color: var(--sidebar-text);
+    border-color: var(--sidebar-text);
+}
+
+@media (min-width: 992px) {
+    .sidebar {
+        flex: 0 0 var(--sidebar-width);
+        width: var(--sidebar-width);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        border-right: 1px solid var(--sidebar-border);
+        background: var(--sidebar-bg) !important;
+    }
+}
+
+/* Дээд мөр */
+.topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem clamp(1rem, 3vw, 2.5rem);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.topbar-search {
+    position: relative;
+    flex: 1 1 16rem;
+    max-width: 32rem;
+    display: flex;
+    gap: 0.5rem;
+    order: 3;
+}
+
+.topbar-search .form-control {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.topbar-search .btn {
+    flex: none;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+    order: 2;
+}
+
+@media (max-width: 991.98px) {
+    .topbar-search {
+        flex-basis: 100%;
+        max-width: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .topbar-search {
+        order: 1;
+    }
+}
+
+.topbar-menu {
+    --bs-dropdown-min-width: 18rem;
+    --bs-dropdown-bg: var(--surface);
+    --bs-dropdown-color: var(--text);
+    --bs-dropdown-border-color: var(--border);
+    --bs-dropdown-link-color: var(--text);
+    --bs-dropdown-link-hover-bg: var(--surface-tint);
+    --bs-dropdown-link-hover-color: var(--text);
+    --bs-dropdown-link-active-bg: var(--primary);
+    --bs-dropdown-link-active-color: var(--on-primary);
+    max-width: calc(100vw - 2rem);
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+}
+
+.notification-item {
+    padding: 0.5rem 1rem;
+    border-top: 1px solid var(--border);
+    font-size: var(--fs-small);
+}
+
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #ffffff;
+    font-size: var(--fs-small);
+    font-weight: 700;
+}
+
+:root[data-contrast='high'] .avatar {
+    border: 1px solid #ffffff;
+}
+
+/* Footer */
+.site-footer {
+    margin-top: auto;
+    padding-block: 2.5rem;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: var(--fs-small);
+}
+
+.site-footer--compact {
+    padding-block: 1rem;
+    padding-inline: clamp(1rem, 3vw, 2.5rem);
+}
+
+.footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+}
+
+/* Нийтийн хуудасны агуулга */
+.public-main {
+    flex: 1 0 auto;
+}
+
+.page-container {
+    padding-block: 2.5rem 3.5rem;
+}
+
+.auth-wrap {
+    display: flex;
+    justify-content: center;
+    padding: clamp(1.5rem, 5vw, 4rem) 1rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 30rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Дүрмийн responsive grid: багана автоматаар цөөрнө. */
+.grid-cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    gap: 1.25rem;
+}
+
+/* Bootstrap-ийн d-grid багана нь агуулгаараа өргөсөж, томруулсан үед халидаг. */
+.d-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.grid-stats {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    gap: 1rem;
+}
+
+/* Хоёр багана нь rem-ээр хэмжигдэх тул текст томроход өөрөө доош шилжинэ. */
+.grid-split {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.grid-split > * {
+    min-width: 0;
+    flex: 1 1 18rem;
+}
+
+.grid-split > :first-child {
+    flex: 2 1 34rem;
+}
+
+.section {
+    margin-top: 2.5rem;
+}
+
+.section-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.section-head h2 {
+    margin: 0;
+}

@@ -1,0 +1,278 @@
+/* Суурь элементүүд */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    color: var(--text);
+    /* Багтахгүй үед л үгийг тасална: өөр мөрөнд багтах үгийг дундаас нь таслахгүй. */
+    overflow-wrap: break-word;
+    font-feature-settings: 'cv11', 'ss03';
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.h4,
+.h5,
+.h6 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+a {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+small,
+.text-small {
+    font-size: var(--fs-small);
+}
+
+.text-secondary-token {
+    color: var(--text-secondary);
+}
+
+.text-success-token {
+    color: var(--success-text);
+}
+
+.text-warning-token {
+    color: var(--warning-text);
+}
+
+/* Нарийн дэлгэц дээр том үсэгтэй үед урт Монгол үг хуудсыг хажуу тийш түлхэхгүй.
+   Зөвхөн энд: өргөн дэлгэцийн хүснэгтийн багана нэг үсэг болтлоо нарийсахгүй. */
+@media (max-width: 30rem) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    label,
+    time,
+    .btn {
+        overflow-wrap: anywhere;
+    }
+
+    .topbar-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .topbar-actions .dropdown {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    main form {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .notice,
+    .activity-list li {
+        overflow-wrap: anywhere;
+    }
+
+    .activity-list li > div {
+        min-width: 0;
+    }
+
+    .topbar-search {
+        flex-wrap: wrap;
+    }
+
+    .player-time {
+        white-space: normal;
+    }
+
+    .player-controls,
+    .player-row > *,
+    .player-field {
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    /* pages.css дахин ачаалагддаг тул өндөр specificity хэрэгтэй. */
+    .player .player-field .form-select,
+    .player .player-field .form-range {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .table-responsive label,
+    .table-responsive time,
+    .table-responsive .btn {
+        overflow-wrap: normal;
+    }
+}
+
+/* Хэрэглэгчийн уншлагын тохиргоо */
+:root[data-font='arial'] {
+    --font-sans: Arial, 'Helvetica Neue', 'Liberation Sans', sans-serif;
+}
+
+:root[data-font='verdana'] {
+    --font-sans: Verdana, 'DejaVu Sans', 'Segoe UI', sans-serif;
+}
+
+:root[data-font='serif'] {
+    --font-sans: Georgia, 'Times New Roman', 'Noto Serif', serif;
+}
+
+:root[data-spacing='wide'] {
+    --bs-body-line-height: 1.9;
+}
+
+:root[data-spacing='wider'] {
+    --bs-body-line-height: 2.2;
+}
+
+:root[data-captions='large'] video::cue {
+    font-size: 1.5em;
+}
+
+:root[data-captions='larger'] video::cue {
+    font-size: 2em;
+}
+
+/* Хүртээмжийн горим: тодорхой, том, чимэглэлгүй. */
+:root[data-a11y='on'] {
+    --control-height: 3.25rem;
+    --shadow-sm: none;
+    --shadow: none;
+}
+
+:root[data-a11y='on'] .course-card-media:not(:has(img)),
+:root[data-a11y='on'] .stat-icon,
+:root[data-a11y='on'] .hero-art {
+    display: none;
+}
+
+:root[data-a11y='on'] .stat {
+    padding-left: 1.25rem;
+}
+
+:root[data-a11y='on'] .grid-cards {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+:root[data-a11y='on'] a,
+:root[data-a11y='on'] .course-card-title a {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+:root[data-a11y='on'] a.btn,
+:root[data-a11y='on'] .sidebar-link:not(:hover),
+:root[data-a11y='on'] .brand {
+    text-decoration: none;
+}
+
+:root[data-a11y='on'] .card-surface,
+:root[data-a11y='on'] .course-card,
+:root[data-a11y='on'] .stat {
+    border-color: var(--border-strong);
+}
+
+:root[data-a11y='on'] :focus-visible {
+    outline-width: 4px !important;
+    box-shadow: 0 0 0 8px var(--focus-outer) !important;
+}
+
+/* Skip link: зөвхөн keyboard focus авахад харагдана. */
+.skip-link {
+    position: absolute;
+    top: 0.75rem;
+    /* Томруулсан үед ч цухуйхгүйн тулд өөрийн өндрөөр дээш шилжинэ. */
+    transform: translateY(calc(-100% - 1.5rem));
+    left: 0.75rem;
+    z-index: 2000;
+    padding: 0.75rem 1.25rem;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 700;
+    border: 3px solid var(--text);
+    border-radius: var(--radius-sm);
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+/* Keyboard focus-ийг бүх элементэд нэг загвараар харуулна. */
+:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.form-check-input:focus-visible,
+.form-range:focus-visible,
+.nav-link:focus-visible,
+.page-link:focus-visible,
+.dropdown-item:focus-visible {
+    outline: 3px solid var(--focus-inner) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 6px var(--focus-outer) !important;
+}
+
+/* JavaScript-ээр focus авдаг бүс нь товчлуур биш. */
+[tabindex='-1']:focus,
+[tabindex='-1']:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+:root[data-motion='reduce'] *,
+:root[data-motion='reduce'] *::before,
+:root[data-motion='reduce'] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (forced-colors: active) {
+    .btn,
+    .card-surface,
+    .stat,
+    .badge-status {
+        border: 1px solid CanvasText;
+    }
+}

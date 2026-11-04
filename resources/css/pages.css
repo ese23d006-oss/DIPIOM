@@ -1,0 +1,758 @@
+/* Нүүр хуудас */
+.hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding-block: var(--space-section);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    }
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: var(--surface-tint);
+    color: var(--primary-hover);
+    font-size: var(--fs-small);
+    font-weight: 600;
+}
+
+:root[data-contrast='high'] .eyebrow {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.hero h1 {
+    font-size: var(--fs-display);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+}
+
+.hero-lead {
+    max-width: 38rem;
+    margin-bottom: 2rem;
+    font-size: 1.1875rem;
+    color: var(--text-soft);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.hero-art {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hero-art .art-frame {
+    fill: var(--surface);
+    stroke: var(--border-strong);
+}
+
+.hero-art .art-screen {
+    fill: var(--navy);
+}
+
+.hero-art .art-accent {
+    fill: var(--primary);
+}
+
+.hero-art .art-muted {
+    fill: var(--border);
+}
+
+.hero-art .art-tint {
+    fill: var(--surface-tint);
+    stroke: var(--border);
+}
+
+.hero-art .art-on-screen {
+    fill: #ffffff;
+}
+
+.hero-art .art-track {
+    stroke: var(--primary);
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.landing-section {
+    padding-block: var(--space-section);
+}
+
+.landing-section--alt {
+    background: var(--surface);
+    border-block: 1px solid var(--border);
+}
+
+.landing-section-head {
+    max-width: 42rem;
+    margin-bottom: 2.25rem;
+}
+
+.landing-section .section-head {
+    margin-bottom: 2.25rem;
+}
+
+.landing-section-head h2,
+.landing-section .section-head h2 {
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.625rem;
+}
+
+.landing-section-head p {
+    margin: 0;
+    color: var(--text-soft);
+}
+
+.feature-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 1.25rem;
+}
+
+.feature {
+    height: 100%;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.feature h3 {
+    margin-bottom: 0.5rem;
+}
+
+.feature p {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: var(--fs-small);
+}
+
+.feature .stat-icon {
+    margin-bottom: 0.875rem;
+}
+
+.a11y-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+}
+
+@media (min-width: 992px) {
+    .a11y-grid {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    }
+}
+
+.check-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.check-list li {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.check-list .bi {
+    color: var(--success-text);
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.category-chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 0.75rem;
+}
+
+.category-chip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    min-height: 3.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.category-chip:hover {
+    border-color: var(--border-strong);
+    color: var(--link);
+}
+
+.category-chip span {
+    color: var(--text-secondary);
+    font-size: var(--fs-small);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 1.5rem;
+    counter-reset: step;
+}
+
+.steps li {
+    counter-increment: step;
+}
+
+.steps li::before {
+    content: counter(step);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.75rem;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+:root[data-contrast='high'] .steps li::before {
+    border: 1px solid #ffffff;
+}
+
+.steps p {
+    margin: 0;
+    color: var(--text-soft);
+}
+
+/* Видео хичээл */
+.lesson-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.lesson-layout > * {
+    min-width: 0;
+    flex: 1 1 18rem;
+}
+
+.lesson-layout > :first-child {
+    flex: 3 1 38rem;
+}
+
+.player {
+    overflow: hidden;
+    background: var(--navy);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.player video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+}
+
+.player:fullscreen {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+}
+
+.player:fullscreen video {
+    flex: 1;
+    min-height: 0;
+    aspect-ratio: auto;
+}
+
+/* Удирдлага нь дэвсгэрээс үл хамааран нэг бараан гадаргуу дээр байна. */
+.player-controls {
+    --player-text: #ffffff;
+    padding: 0.875rem 1rem 1rem;
+    background: #0f172a;
+    color: var(--player-text);
+}
+
+.player-seek {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.player-seek label {
+    flex: 1 0 100%;
+    font-size: var(--fs-small);
+    font-weight: 600;
+}
+
+.player-seek input {
+    flex: 1 1 12rem;
+    min-width: 0;
+}
+
+.player-time {
+    font-size: var(--fs-small);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.player-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.5rem 0.625rem;
+}
+
+.player-row + .player-row {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #334155;
+}
+
+.player-row--transport {
+    justify-content: center;
+}
+
+.player-btn {
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: #1e293b;
+    --bs-btn-border-color: #94a3b8;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #334155;
+    --bs-btn-hover-border-color: #ffffff;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #334155;
+    --bs-btn-active-border-color: #ffffff;
+    --bs-btn-disabled-color: #ffffff;
+    --bs-btn-disabled-bg: #1e293b;
+    --bs-btn-disabled-border-color: #94a3b8;
+    min-height: 3rem;
+}
+
+.player-btn--main {
+    --bs-btn-color: #0f172a;
+    --bs-btn-bg: #ffffff;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-color: #0f172a;
+    --bs-btn-hover-bg: #dbeafe;
+    --bs-btn-hover-border-color: #dbeafe;
+    --bs-btn-active-color: #0f172a;
+    --bs-btn-active-bg: #dbeafe;
+    --bs-btn-active-border-color: #dbeafe;
+    min-width: 8rem;
+}
+
+/* Асаалттай төлвийг өнгөөс гадна icon-оор харуулна. */
+.player-btn[aria-pressed='true'] {
+    --bs-btn-bg: #1d4ed8;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-bg: #1e40af;
+    --bs-btn-active-bg: #1e40af;
+}
+
+.player-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    font-size: var(--fs-small);
+    font-weight: 600;
+}
+
+.player-field .form-select {
+    min-height: 3rem;
+    background-color: #1e293b;
+    color: #ffffff;
+    border-color: #94a3b8;
+    --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.player-field .form-range {
+    width: 8rem;
+    height: 3rem;
+}
+
+/* Хар дэвсгэр дээрх харанхуй focus-ийг нөхнө. */
+.player-controls :focus-visible {
+    outline-color: #ffffff !important;
+}
+
+.form-range::-webkit-slider-runnable-track {
+    background: #94a3b8;
+}
+
+.form-range::-moz-range-track {
+    background: #94a3b8;
+}
+
+.form-range::-webkit-slider-thumb {
+    background: #60a5fa;
+}
+
+.form-range::-moz-range-thumb {
+    background: #60a5fa;
+}
+
+.player-notes {
+    margin-top: 0.75rem;
+    font-size: var(--fs-small);
+    color: #e2e8f0;
+}
+
+.player-notes p {
+    margin: 0.25rem 0 0;
+}
+
+.player-empty {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.player-empty .bi {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.lesson-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.lesson-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: lesson;
+}
+
+.lesson-list li {
+    counter-increment: lesson;
+    border-top: 1px solid var(--border);
+}
+
+.lesson-list li:first-child {
+    border-top: 0;
+}
+
+.lesson-link {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.lesson-link:hover {
+    background: var(--bg);
+    text-decoration: underline;
+}
+
+.lesson-link[aria-current='page'] {
+    background: var(--surface-tint);
+    font-weight: 700;
+}
+
+/* Цэнхэр дэвсгэр дээр 4.5:1 хүрэхийн тулд бараан текст. */
+.lesson-link[aria-current='page'] .lesson-state,
+.lesson-link[aria-current='page'] .bi {
+    color: var(--text-soft);
+}
+
+.lesson-link[aria-current='page'] .bi-check-circle-fill {
+    color: var(--success-text);
+}
+
+.lesson-link .bi {
+    flex: none;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.lesson-link .bi-check-circle-fill {
+    color: var(--success-text);
+}
+
+.lesson-state {
+    display: block;
+    font-size: var(--fs-small);
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+:root[data-contrast='high'] .lesson-link[aria-current='page'] {
+    outline: 2px solid #ffffff;
+    outline-offset: -2px;
+}
+
+.transcript {
+    white-space: pre-line;
+    max-width: 46rem;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+}
+
+/* role="status" элемент хуудаст үргэлж байх ёстой: display:none-оос гарсан текстийг
+   дэлгэц уншигч зарлахгүй байж болно. */
+.tts-status:empty {
+    margin: 0 !important;
+    padding: 0;
+    border: 0;
+    background: none;
+}
+
+.tts-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.tts-rate {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    font-size: var(--fs-small);
+    font-weight: 600;
+}
+
+/* Япон хэл. Inter-д Япон үсэг байхгүй тул системийн фонтыг ашиглана. */
+:lang(ja):not(:lang(ja-Latn)) {
+    font-family: 'Yu Gothic UI', 'Yu Gothic', 'Meiryo', 'Noto Sans CJK JP', 'Hiragino Sans', var(--font-sans);
+}
+
+.jp-display {
+    margin: 0 0 1rem;
+    font-size: clamp(3.5rem, 2.5rem + 5vw, 6rem);
+    line-height: 1.15;
+    text-align: center;
+}
+
+.jp-subtitle {
+    color: var(--text-secondary);
+}
+
+.jp-sentence-main {
+    margin: 0 0 0.5rem;
+    font-size: 1.375rem;
+    line-height: 1.6;
+}
+
+.jp-speaker {
+    margin: 0 0 0.25rem;
+    color: var(--text-secondary);
+    font-size: var(--fs-small);
+    font-weight: 600;
+}
+
+.jp-facts {
+    margin: 0 0 1rem;
+}
+
+.jp-facts > div {
+    margin-bottom: 0.625rem;
+}
+
+.jp-facts dt {
+    color: var(--text-secondary);
+    font-size: var(--fs-small);
+    font-weight: 500;
+}
+
+.jp-facts dd {
+    margin: 0;
+    font-weight: 500;
+}
+
+.jp-word {
+    font-size: 1.25rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.jp-example-row {
+    color: var(--text-soft);
+    font-size: var(--fs-small);
+    background: var(--bg);
+}
+
+/* Япон үгийг дундаас нь хуваавал уншлага алдагдана. */
+.jp-word-reading {
+    white-space: nowrap;
+}
+
+.jp-example-cell {
+    min-width: 14rem;
+    color: var(--text-soft);
+    font-size: var(--fs-small);
+}
+
+.jp-answer-row {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.jp-kana-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 6.5rem), 1fr));
+    gap: 0.625rem;
+}
+
+.jp-kana-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 0.75rem 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    text-align: center;
+}
+
+.jp-kana-link:hover {
+    border-color: var(--border-strong);
+    color: var(--link);
+}
+
+.jp-kana-char {
+    font-size: 2rem;
+    line-height: 1.25;
+}
+
+.jp-kana-romaji {
+    color: var(--text-soft);
+    font-size: var(--fs-small);
+}
+
+.jp-flashcard {
+    max-width: 44rem;
+}
+
+.jp-question {
+    min-width: 0;
+}
+
+.jp-question-title {
+    margin-bottom: 0.75rem;
+    font-size: var(--fs-h3);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.jp-feedback:empty {
+    display: none;
+}
+
+.jp-feedback.notice {
+    display: block;
+}
+
+/* Уншигчийн самбар */
+.tts-reader {
+    padding: 0.75rem clamp(1rem, 3vw, 2.5rem);
+    background: var(--surface-tint);
+    border-bottom: 1px solid var(--border);
+}
+
+.reader-current {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+    background: var(--surface-tint);
+}
+
+/* Сургалтын дэлгэрэнгүй */
+.course-summary dl {
+    margin: 0;
+}
+
+.course-summary dt {
+    color: var(--text-secondary);
+    font-size: var(--fs-small);
+    font-weight: 500;
+}
+
+.course-summary dd {
+    margin: 0 0 0.875rem;
+    font-weight: 600;
+}
+
+.course-lessons {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.course-lessons li {
+    border-top: 1px solid var(--border);
+}
+
+.course-lessons li:first-child {
+    border-top: 0;
+}
+
+/* Админ график, тооны хэсэг */
+.chart-note {
+    margin: 0 0 1rem;
+    color: var(--text-secondary);
+    font-size: var(--fs-small);
+}
+
+.error-page {
+    max-width: 36rem;
+    margin: clamp(2rem, 8vw, 5rem) auto;
+    text-align: center;
+}
+
+.error-page .bi {
+    font-size: 3rem;
+    color: var(--text-secondary);
+}

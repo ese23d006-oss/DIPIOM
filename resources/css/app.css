@@ -1,0 +1,11 @@
+/* Гуравдагч талын санууд. Фонт дотоод серверээс ачаалагдана. */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.min.css';
+@import '@fontsource-variable/inter/wght.css';
+
+/* Дизайн систем: дарааллыг өөрчилж болохгүй. */
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';
+@import './pages.css';
